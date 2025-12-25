@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced AI Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <h1>Advanced AI Assistant</h1>
+            </div>
+            <div class="controls">
+                <button id="voiceToggle" class="control-btn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button id="clearChat" class="control-btn">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button id="themeToggle" class="control-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <div class="avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="content">
+                        <p>Hello! I'm your advanced AI assistant. I can answer questions, generate images, and assist with voice commands. How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <input type="text" id="userInput" placeholder="Type your message here...">
+                <div class="input-buttons">
+                    <button id="imageGenBtn" class="input-btn" title="Generate Image">
+                        <i class="fas fa-image"></i>
+                    </button>
+                    <button id="sendBtn" class="input-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="voice-status" id="voiceStatus">
+                <i class="fas fa-microphone-slash"></i>
+                <span>Voice: Off</span>
+            </div>
+        </div>
+
+        <!-- Image Generation Panel -->
+        <div class="image-panel" id="imagePanel">
+            <div class="panel-header">
+                <h3><i class="fas fa-camera"></i> Image Generator</h3>
+                <button id="closeImagePanel" class="close-btn">&times;</button>
+            </div>
+            <div class="image-controls">
+                <input type="text" id="imagePrompt" placeholder="Describe the image you want to generate...">
+                <select id="imageStyle">
+                    <option value="realistic">Realistic</option>
+                    <option value="anime">Anime</option>
+                    <option value="digital-art">Digital Art</option>
+                    <option value="cartoon">Cartoon</option>
+                </select>
+                <button id="generateImageBtn" class="generate-btn">
+                    <i class="fas fa-magic"></i> Generate Image
+                </button>
+            </div>
+            <div class="image-display" id="imageDisplay">
+                <div class="placeholder">
+                    <i class="fas fa-image"></i>
+                    <p>Generated images will appear here</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settingsPanel">
+            <div class="panel-header">
+                <h3><i class="fas fa-cog"></i> Settings</h3>
+                <button id="closeSettings" class="close-btn">&times;</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting">
+                    <label for="voiceSpeed">Voice Speed:</label>
+                    <input type="range" id="voiceSpeed" min="0.5" max="2" step="0.1" value="1">
+                    <span id="speedValue">1.0x</span>
+                </div>
+                <div class="setting">
+                    <label for="voicePitch">Voice Pitch:</label>
+                    <input type="range" id="voicePitch" min="0.5" max="2" step="0.1" value="1">
+                    <span id="pitchValue">1.0</span>
+                </div>
+                <div class="setting">
+                    <label for="apiEndpoint">API Endpoint:</label>
+                    <input type="text" id="apiEndpoint" value="http://localhost:5000">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Element for Text-to-Speech -->
+    <audio id="speechAudio" hidden></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
